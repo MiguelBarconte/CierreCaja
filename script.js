@@ -20,21 +20,21 @@ form.addEventListener("submit", e => {
 
     let nuevoPago = new Pagos(nya, destino, monto, medio);
     //En esta parte se controla si el destino esta o no ingresada
-    if(!destinos.includes(destino)){
+    if (!destinos.includes(destino)) {
         destinos.push(destino);
         let nuevoDestino = new Destino(destino);
         nuevoDestino.datosPaga(nuevoPago);
         pagos.push(nuevoDestino);
-    }else{
+    } else {
         agregarPago(nuevoPago);
     }
-agregarDatos(nuevoPago);
+    agregarDatos(nuevoPago);
 });
 
 //Agrega el pago al destino ya creado
-function agregarPago(pago){
+function agregarPago(pago) {
     pagos.forEach(e => {
-        if(e.lugar == pago.destino){
+        if (e.lugar == pago.destino) {
             e.datosPaga(pago);
         }
         console.log(e.resumen);
@@ -68,12 +68,19 @@ function generarTexto() {
         let texto = item.resumen();
         text.innerText += texto;
     });
-    pagos.forEach(item =>{
-        text.innerText += `* pagos de ${item.lugar}*
-        
+    pagos.forEach(item => {
+        text.innerText += `* pagos para ${item.lugar}*
         ${item.listarPagos()}\n`;
     });
-
 }
 
+function copiarTexto() {
+    const texto = document.getElementById("texto-cierre").innerText;
+    navigator.clipboard.writeText(texto).then(() => {
+        alert("Texto copiado al portapapeles");
+        alert(texto);
+    }).catch(error => {
+        console.error("Error al copiar", error);
+    });
+}
 

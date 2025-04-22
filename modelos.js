@@ -75,7 +75,7 @@ class Destino {
     }
 
     listarPagos(){
-        let listaPagos;
+        let listaPagos = "";
         this.pagos.forEach(p =>{
             listaPagos += `- ${p.verPago()} \n`;
         });
