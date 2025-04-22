@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de texto: Cierre de dia</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>CIERRE DE DIA</h1>
+    <main>
+        <form id="formulario">
+            <div class="form-group">
+                <label for="#nombreApellido">Nombre y Apellido</label>
+                <input id="nombreApellido" required="true">
+            </div>
+            <div class="form-group">
+                <label>Destino</label>
+                <input id="destino" required="true">
+            </div>
+            <div class="form-group">
+                <label>Monto $</label>
+                <input id="monto" type="number" required="true">
+            </div>
+            <div class="form-group">
+                <label>
+                    Efectivo
+                    <input type="radio" name="opcion" value="efectivo">
+                </label>
+                <label>
+                    Transferencia
+                    <input type="radio" name="opcion" value="transferencia">
+                </label>
+                <label>
+                    Dolar
+                    <input type="radio" name="opcion" value="dolar">
+                </label>
+            </div>
+            <button type="submit" id="btn-pagar">Pagar</button>
+        </form>
+            <div id="tabla-pagos">
+                <div class="tr">
+                    <div class="th">Nombre y Apellido</div>
+                    <div class="th">Destino</div>
+                    <div class="th">Monto</div>
+                    <div class="th">Tipo</div>
+                </div>
+            </div>
+        <section id="contenedor-texto">
+            <h2>Cierre del dia</h2>
+            <button onclick="generarTexto()">Generar Texto</button>
+            <span id="texto-cierre" readonly="true">
+
+            </span>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="modelos.js"></script>
+</body>
+
+</html>

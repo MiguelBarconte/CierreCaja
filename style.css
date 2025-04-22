@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: whitesmoke;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+h1{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+#formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.form-group>*{
+    padding: 0.5em;
+}
+button{
+    padding: 0.5rem 2rem;
+    margin: 5px auto;
+    background-color: beige;
+    border-radius: 10px;
+    border: solid 1px black;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90vw;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+#tabla-pagos{
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr 2fr;
+    border: solid 1px black;
+}
+.tr{ 
+    display: contents;
+    justify-content: center;
+    align-content: center;
+}
+.th, .td{
+    text-align: center;
+    margin: 0;
+    padding: 5px 10px;
+}
+.th{
+    font-weight: 600;
+}
+.td + .td, .th + .th{
+    border-left: solid 1px black;
+}
