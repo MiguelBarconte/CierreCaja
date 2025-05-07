@@ -16,10 +16,10 @@ form.addEventListener("submit", e => {
         if (i.checked) {
             medio = i.value;
         }
-    })
+    });
 
     let nuevoPago = new Pagos(nya, destino, monto, medio);
-    //En esta parte se controla si el destino esta o no ingresada
+    //En esta parte se controla si el destino ya existe
     if (!destinos.includes(destino)) {
         destinos.push(destino);
         let nuevoDestino = new Destino(destino);
@@ -56,7 +56,7 @@ function agregarDatos(pago) {
 //Genera el texto de cierre de caja para copiar y enviar
 function generarTexto() {
     let fecha = new Date();
-    let dia = fecha.getDay();
+    let dia = fecha.getDate();
     let mes = fecha.toLocaleString('es-AR', { month: 'long' });
     let text = document.getElementById("texto-cierre");
 
@@ -69,7 +69,7 @@ function generarTexto() {
         text.innerText += texto;
     });
     pagos.forEach(item => {
-        text.innerText += `* pagos para ${item.lugar}*
+        text.innerText += `*pagos para ${item.lugar}*
         ${item.listarPagos()}\n`;
     });
 }
@@ -77,7 +77,6 @@ function generarTexto() {
 function copiarTexto() {
     const texto = document.getElementById("texto-cierre").innerText;
     navigator.clipboard.writeText(texto).then(() => {
-        alert("Texto copiado al portapapeles");
         alert(texto);
     }).catch(error => {
         console.error("Error al copiar", error);
